@@ -1,0 +1,32 @@
+<p><strong>Title</strong><br><%= @post["title"] %></p>
+<p><strong>Body</strong><br><%= @post["body"] %></p>
+
+
+<h3 class="mt-2">Comments</h3>
+
+<table class="table  table-hover mt-2">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Body</th>
+    <th scope="col">Post Id</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment["id"] %></td>
+      <td><%= comment["name"] %></td>
+      <td><%= comment["email"] %></td>
+      <td><%= comment["body"] %></td>
+      <td><%= comment["postId"] %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%== pagy_nav(@pagy) %>
+
+<%= link_to "Back", root_path, class: "btn btn-sm btn-primary mt-2" %>
